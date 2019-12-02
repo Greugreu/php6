@@ -10,7 +10,14 @@
 <header>
     <nav class="nav">
         <ul>
-
+            <li><a href="index.php">Home</a></li>
+            <?php if(!is_logged()) { ?>
+                <li><a href="signup.php">Inscription</a></li>
+                <li><a href="login.php">Login</a></li>
+            <?php } else { ?>
+                <li><a href="signoff.php">Deconnexion</a></li>
+                <li><?php echo 'Bonjour ' . $_SESSION['login']['pseudo']; ?></li>
+            <?php } ?>
         </ul>
     </nav>
 </header>

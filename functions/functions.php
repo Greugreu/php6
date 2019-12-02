@@ -102,17 +102,17 @@ function passwordValid($password, $err, $minl, $key)
         $err[$key] = 'Veuillez remplir ce champ';
     }
     return $err;
-}
+};
 
-;
-function generateToken()
-{
-    $token = '';
-    $chaine = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890";
-    for ($i = 0; $i < 255; $i++) {
-        $token .= $chaine[rand(0, mb_strlen($chaine) - 1)];
+
+function generateRandomString($length) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
-    return $token;
+    return $randomString;
 }
 
 function formselect($err, $select, $key)
@@ -129,4 +129,23 @@ function inputDate($err, $date, $key)
         $err[$key] = 'Veuillez entrer une date';
     }
     return $err;
+}
+
+function is_logged()
+{
+    $roles = array('abonne', 'admin');
+    if (!empty($_SESSION['login'])) {
+        if (!empty($_SESSION['login']['id']) && is_numeric($_SESSION['login']['id'])) {
+            if (!empty($_SESSION['login']['pseudo'])) {
+                if (in_array($_SESSION['login']['role'], $roles)) {
+                    if (!empty($_SESSION['login']['ip'])) {
+                        if (!empty($_SESSION['login']['ip']) === $_SERVER['REMOTE_ADDR'] ) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return false;
 }
