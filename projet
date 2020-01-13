@@ -1,0 +1,30 @@
+Site de film
+
+DB de plus de 5000 films, dossier posters à gérer.
+Travailler à deux, de faire un front et un back.
+Home qui liste au hasard une 100 aine de films.
+Quand on click sur une pochette, un film dans ses détails
+Filtre de recherche sur la homepage, soit par catégorie, par années.
+
+Système d'inscription, connexion et mdp oublié.
+
+ajouter à une liste personnelle de films à voir
+Losrque les films sont dans la liste, on peut les retirer, CROUD classique.
+Le noter, donner une note au film.
+
+// Backoffice
+
+Seuls les personnes connectées peuvent accéder au back
+stats à faire
+CROUD total de n'importe quel film
+CROUD utilisateur
+Les deux disgn sont différents
+(template possible)
+afficher la totalité des filsm
+pagination
+100 films par pages
+Tout les champs du film dans la modification
+
+Même principe pour les utilisateurs
+
+Les 30 films les plus ajoutés dans les listes à voir.
